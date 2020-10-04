@@ -1,6 +1,7 @@
 {
   "name": "cdk-tips-part-3-example-project",
   "version": "0.1.0",
+  "private": true,
   "bin": {
     "cdk-tips-part-3-example-project": "bin/cdk-tips-part-3-example-project.js"
   },
@@ -21,5 +22,8 @@
     "@aws-cdk/aws-lambda": "1.66.0",
     "@aws-cdk/aws-s3": "1.66.0",
     "source-map-support": "^0.5.16"
+  },
+  "workspaces": {
+
   }
 }
