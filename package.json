@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "bin": {
-    "cdk-tips-part-3-example-project": "bin/cdk-tips-part-3-example-project.js"
+    "cdk-tips-part-3-example-project": "01-setup/bin/cdk-tips-part-3-example-project.js"
   },
   "scripts": {
     "build": "tsc",
@@ -24,6 +24,8 @@
     "source-map-support": "^0.5.16"
   },
   "workspaces": {
-
+    "packages": [
+      "01-setup"
+    ]
   }
 }
