@@ -1,15 +1,6 @@
 {
-  "name": "cdk-tips-part-3-example-project",
-  "version": "0.1.0",
+  "name": "cdk-unblocking-references-example",
   "private": true,
-  "bin": {
-    "cdk-tips-part-3-example-project": "01-setup/bin/cdk-tips-part-3-example-project.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "cdk": "cdk"
-  },
   "devDependencies": {
     "@types/node": "10.17.27",
     "aws-cdk": "1.66.0",
