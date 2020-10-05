@@ -16,7 +16,8 @@
   },
   "workspaces": {
     "packages": [
-      "01-setup"
+      "01-setup",
+      "02-failed-update"
     ]
   }
 }
