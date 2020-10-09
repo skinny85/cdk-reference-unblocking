@@ -18,7 +18,8 @@
     "packages": [
       "01-setup",
       "02-failed-update",
-      "03-successful-update-step-1"
+      "03-successful-update-step-1",
+      "04-successful-update-step-2"
     ]
   }
 }
