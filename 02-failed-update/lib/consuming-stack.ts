@@ -1,5 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import * as dynamodb from '@aws-cdk/aws-dynamodb';
+import * as iam from '@aws-cdk/aws-iam';
 import * as lambda from '@aws-cdk/aws-lambda';
 import * as path from 'path';
 
@@ -19,6 +20,9 @@ export class ConsumingStack extends cdk.Stack {
         'TABLE_NAME': props.table.tableName,
       },
     });
-    // props.table.grantRead(func);
+    func.addToRolePolicy(new iam.PolicyStatement({
+      actions: ['dynamodb:DescribeTable'],
+      resources: [props.table.tableArn],
+    }));
   }
 }
