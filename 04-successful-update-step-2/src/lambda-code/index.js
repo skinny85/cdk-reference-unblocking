@@ -1,4 +1,4 @@
-const Aws = require('aws-sdk')
+const Aws = require('aws-sdk');
 
 exports.handler = async function (event) {
     console.log("EVENT: \n" + JSON.stringify(event, null, 2));

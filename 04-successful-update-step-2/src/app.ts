@@ -1,15 +1,39 @@
+#!/usr/bin/env node
+
+import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import * as dynamodb from '@aws-cdk/aws-dynamodb';
 import * as iam from '@aws-cdk/aws-iam';
 import * as lambda from '@aws-cdk/aws-lambda';
 import * as path from 'path';
 
-export interface ConsumingStackProps extends cdk.StackProps {
+class ProducingStack extends cdk.Stack {
+  // public readonly bucket: s3.IBucket;
+  public readonly table: dynamodb.ITable;
+
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    // this.bucket = new s3.Bucket(this, 'Bucket', {
+    //   removalPolicy: cdk.RemovalPolicy.DESTROY,
+    // });
+
+    this.table = new dynamodb.Table(this, 'Table', {
+      partitionKey: {
+        name: 'Name',
+        type: dynamodb.AttributeType.STRING,
+      },
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+  }
+}
+
+interface ConsumingStackProps extends cdk.StackProps {
   // readonly bucket: s3.IBucket;
   readonly table: dynamodb.ITable;
 }
 
-export class ConsumingStack extends cdk.Stack {
+class ConsumingStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: ConsumingStackProps) {
     super(scope, id, props);
 
@@ -35,3 +59,10 @@ export class ConsumingStack extends cdk.Stack {
     // });
   }
 }
+
+const app = new cdk.App();
+const producingStack = new ProducingStack(app, 'ProducingStack');
+new ConsumingStack(app, 'ConsumingStack', {
+  // bucket: producingStack.bucket,
+  table: producingStack.table,
+});
