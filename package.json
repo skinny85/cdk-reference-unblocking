@@ -20,6 +20,7 @@
       "02-failed-update",
       "03-synthetic-exports",
       "03-successful-update-step-1",
+      "04-exports-cleanup",
       "04-successful-update-step-2"
     ]
   }
