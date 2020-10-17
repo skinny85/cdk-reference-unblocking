@@ -23,7 +23,7 @@ class ProducingStack extends cdk.Stack {
 
     /*
      * Now that the consuming Stack has been updated,
-     * we can remove the synthetics outputs,
+     * we can safely remove the "synthetic exports",
      * along with the Bucket.
      */
     // const bucket = new s3.Bucket(this, 'Bucket', {

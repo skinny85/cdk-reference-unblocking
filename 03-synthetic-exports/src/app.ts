@@ -25,6 +25,13 @@ class ProducingStack extends cdk.Stack {
     const bucket = new s3.Bucket(this, 'Bucket', {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
+    /*
+     * Create the "synthetic exports" to make the producing Stack deploy correctly.
+     * Note that we need 2 of them,
+     * as there were 2 different references to the Bucket in the previous consuming Stack version
+     * (one to the name in the Lambda's environment variables,
+     * and one to the ARN by way of the grantReadWrite() call).
+     */
     const bucketNameOutput = new cdk.CfnOutput(this, 'BucketNameOutput', {
       value: bucket.bucketName,
       exportName: 'ProducingStack:ExportsOutputRefBucket83908E7781C90AC0',
