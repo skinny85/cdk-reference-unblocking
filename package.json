@@ -18,7 +18,7 @@
     "packages": [
       "01-setup",
       "02-failed-update",
-      "03-synthetic-exports",
+      "03-dummy-exports",
       "04-exports-cleanup"
     ]
   }

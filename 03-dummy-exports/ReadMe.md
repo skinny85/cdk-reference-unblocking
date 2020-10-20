@@ -1,6 +1,6 @@
 In part 3, we learn a trick to unblock ourselves when we encounter the dreaded
 `Export cannot be deleted as it is in use by another Stack` error.
-I call this trick "synthetic exports".
+I call this trick "dummy exports".
 
 The problem that we encountered in part 2 was that the moment the previous reference
 (in our case, that's the S3 Bucket)
@@ -16,7 +16,7 @@ but preserve the exports in the producing Stack.
 Since the reference being removed turns off the CDK machinery that generates the exports,
 we need to create those exports explicitly ourselves.
 The exports don't serve any purpose other than to make the deploy of the producing Stack succeed,
-hence my name for this pattern -- "synthetic exports".
+hence my name for this pattern -- "dummy exports".
 
 You create exports by using the `CfnOutput` class with the `exportName` property filled.
 Both the `exportName`,
@@ -27,12 +27,12 @@ and then run `cdk diff` --
 you can then copy the auto-generated names you see in the output of that command to your code.
 Keep running `cdk diff` until it shows no edits or deletions in the producing Stack -- only additions.
 
-The code creating the "synthetic exports" for our producing Stack is in the file
+The code creating the "dummy exports" for our producing Stack is in the file
 [src/app.ts](src/app.ts).
 You can verify the names have been filled correctly with the `cdk diff` command:
 
 ```shell script
-$ cd ../03-synthetic-exports
+$ cd ../03-dummy-exports
 $ yarn cdk diff
 ```
 

@@ -23,4 +23,4 @@ $ yarn cdk deploy '*'
 
 You should see an error similar to above.
 
-We'll solve this problem in [part 3](../03-synthetic-exports).
+We'll solve this problem in [part 3](../03-dummy-exports).

@@ -26,7 +26,7 @@ class ProducingStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
     /*
-     * Create the "synthetic exports" to make the producing Stack deploy correctly.
+     * Create the "dummy exports" to make the producing Stack deploy correctly.
      * Note that we need 2 of them,
      * as there were 2 different references to the Bucket in the previous consuming Stack version
      * (one to the name in the Lambda's environment variables,
