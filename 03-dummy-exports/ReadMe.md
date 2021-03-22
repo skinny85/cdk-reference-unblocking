@@ -18,7 +18,13 @@ we need to create those exports explicitly ourselves.
 The exports don't serve any purpose other than to make the deploy of the producing Stack succeed,
 hence my name for this pattern -- "dummy exports".
 
-You create exports by using the `CfnOutput` class with the `exportName` property filled.
+If you're using CDK in version `1.90.1` or later,
+there is a helper method in the `Stack` class, `exportValue`,
+that allows you to easily maintain the given attribute of a resource as an export of the Stack.
+
+If you're using a version of CDK earlier than `1.90.1`,
+you need to create the dummy exports manually.
+You do it using the `CfnOutput` class with the `exportName` property filled.
 Both the `exportName`,
 and the logical ID of the Output itself need to be exactly the same as the names the CDK generated for them.
 You can use the `overrideLogicalId()` method of `CfnOutput` to make sure it has the correct name.

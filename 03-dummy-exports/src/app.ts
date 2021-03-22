@@ -37,11 +37,9 @@ class ProducingStack extends cdk.Stack {
       exportName: 'ProducingStack:ExportsOutputRefBucket83908E7781C90AC0',
     });
     bucketNameOutput.overrideLogicalId('ExportsOutputRefBucket83908E7781C90AC0');
-    const bucketArnOutput = new cdk.CfnOutput(this, 'BucketArnOutput', {
-      value: bucket.bucketArn,
-      exportName: 'ProducingStack:ExportsOutputFnGetAttBucket83908E77Arn063C8555',
-    });
-    bucketArnOutput.overrideLogicalId('ExportsOutputFnGetAttBucket83908E77Arn063C8555');
+    // if you're on CDK version 1.90.1 or later,
+    // there's a utility method on Stack that makes creating "dummy exports" easier:
+    this.exportValue(bucket.bucketArn);
   }
 }
 
