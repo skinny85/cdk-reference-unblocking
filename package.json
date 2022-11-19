@@ -3,15 +3,15 @@
   "private": true,
   "devDependencies": {
     "@types/node": "10.17.27",
-    "aws-cdk": "1.90.1",
+    "aws-cdk": "1.158.0",
     "ts-node": "^8.1.0",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/core": "1.90.1",
-    "@aws-cdk/aws-dynamodb": "1.90.1",
-    "@aws-cdk/aws-lambda": "1.90.1",
-    "@aws-cdk/aws-s3": "1.90.1",
+    "@aws-cdk/core": "1.158.0",
+    "@aws-cdk/aws-dynamodb": "1.158.0",
+    "@aws-cdk/aws-lambda": "1.158.0",
+    "@aws-cdk/aws-s3": "1.158.0",
     "source-map-support": "^0.5.16"
   },
   "workspaces": {

@@ -40,8 +40,34 @@ class ConsumingStack extends cdk.Stack {
   }
 }
 
+class MyStage extends cdk.Stage {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StageProps) {
+      super(scope, id, props);
+
+      const producingStack = new ProducingStack(this, 'ProducingStack');
+      new ConsumingStack(this, 'ConsumingStack', {
+          bucket: producingStack.bucket,
+      });
+  }
+}
+
 const app = new cdk.App();
-const producingStack = new ProducingStack(app, 'ProducingStack');
-new ConsumingStack(app, 'ConsumingStack', {
-  bucket: producingStack.bucket,
+
+// test Stage
+new MyStage(app, 'MyTestStage', {
+  env: {
+    account: 'test-account',
+    region: 'test-region',
+  },
 });
+
+// prod Stage
+new MyStage(app, 'MyProdStage', {
+  env: {
+    account: 'prod-account',
+    region: 'prod-region',
+  },
+});
+
+// developer Stage
+new MyStage(app, 'MyDevStage');

@@ -1,5 +1,9 @@
 {
   "app": "npx ts-node src/app.ts",
+  "watch": {
+    "include": ["**/*.ts", "**/*.js", "*.json"],
+    "exclude": "cdk*.json"
+  },
   "context": {
     "@aws-cdk/core:enableStackNameDuplicates": "true",
     "aws-cdk:enableDiffNoFail": "true",
